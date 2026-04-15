@@ -1,0 +1,10 @@
+{
+  "name": "ai-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple AI chatbot — API key secured server-side, password-protected, deploy on Vercel.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
