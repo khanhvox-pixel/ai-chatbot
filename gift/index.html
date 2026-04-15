@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gửi tặng Khanh Vox 🌿</title>
+  <meta name="description" content="Một trang web nhỏ được làm bằng cả tấm lòng — gửi tặng Khanh Vox." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --green-50:  #f0fdf4;
+      --green-100: #dcfce7;
+      --green-300: #86efac;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --ink: #0f172a;
+      --muted: #475569;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #bbf7d0 0%, transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, #a7f3d0 0%, transparent 55%),
+        linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 50%, #ffffff 100%);
+      color: var(--ink);
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+    .confetti {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .confetti span {
+      position: absolute; top: -20px; width: 10px; height: 14px; border-radius: 2px;
+      opacity: .85; animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-20px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(720deg); }
+    }
+    main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 64px 24px 80px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-100); color: var(--green-700);
+      padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;
+      border: 1px solid var(--green-300);
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.02em;
+      margin: 18px 0 10px; font-weight: 800;
+    }
+    h1 .name {
+      background: linear-gradient(90deg, #16a34a, #059669, #0ea5e9);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .subtitle {
+      color: var(--muted); font-size: clamp(16px, 2.2vw, 20px); max-width: 640px;
+    }
+    .hero {
+      margin-top: 34px; display: grid; grid-template-columns: 1fr; gap: 22px;
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 22px; padding: 28px;
+      box-shadow: 0 10px 30px rgba(15,23,42,.06);
+    }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      display: grid; place-items: center; font-size: 56px; color: var(--green-700);
+      border: 4px solid #fff; box-shadow: 0 6px 18px rgba(22,163,74,.25);
+    }
+    .intro { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+    .intro p { color: var(--muted); font-size: 16px; line-height: 1.6; }
+    section.letter {
+      margin-top: 28px; background: #fff; border: 1px solid #e2e8f0; border-radius: 22px; padding: 28px;
+      box-shadow: 0 10px 30px rgba(15,23,42,.06);
+    }
+    section.letter h2 { font-size: 22px; margin-bottom: 12px; }
+    section.letter p { color: var(--ink); line-height: 1.7; font-size: 16px; margin-bottom: 12px; }
+    .grid { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.08); }
+    .card .emoji { font-size: 28px; }
+    .card h3 { font-size: 16px; margin: 8px 0 4px; }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .cta {
+      margin-top: 32px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    button.send {
+      font-size: 16px; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, var(--green-500), var(--green-700));
+      border: none; padding: 14px 22px; border-radius: 12px; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(22,163,74,.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    button.send:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(22,163,74,.45); }
+    .footer {
+      margin-top: 48px; text-align: center; color: var(--muted); font-size: 14px;
+    }
+    .heart { color: #ef4444; }
+    .quote {
+      margin-top: 22px; padding: 18px 22px; border-left: 4px solid var(--green-500);
+      background: var(--green-50); border-radius: 6px; color: var(--green-700); font-style: italic;
+    }
+    .toast {
+      position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(80px);
+      background: #0f172a; color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 500;
+      opacity: 0; transition: opacity .25s ease, transform .25s ease; z-index: 50;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="confetti" aria-hidden="true"></div>
+
+  <main>
+    <span class="pill">🌿 Mật thư #1 · Làm web tặng bạn bè</span>
+    <h1>Gửi tặng <span class="name">Khanh Vox</span> 💚</h1>
+    <p class="subtitle">Một trang web nhỏ được làm bằng cả tấm lòng — từ một người bạn đồng hành cùng bạn trên hành trình học AI &amp; AI Agent.</p>
+
+    <section class="hero">
+      <div class="intro">
+        <div class="avatar" aria-hidden="true">🌱</div>
+        <div>
+          <h2 style="font-size:22px;margin-bottom:6px;">Chào Khanh Vox!</h2>
+          <p>Chúc mừng bạn đã hoàn thành 5 bài đầu tiên của Trạng Đền Agentsee. Bạn đã đi qua: tập ra lệnh cho Coding Agent, tích luỹ kiến thức, hiểu năng lực của Agent, phân biệt AI với AI Agent, và vòng lặp Agent. Một chặng đường đáng trân trọng!</p>
+        </div>
+      </div>
+
+      <div class="quote">
+        "Mỗi dòng prompt bạn viết hôm nay là một viên gạch của ngày mai."
+      </div>
+    </section>
+
+    <section class="letter">
+      <h2>Lời nhắn 🌿</h2>
+      <p>Khanh ơi, cảm ơn bạn vì đã không bỏ cuộc khi những dòng lệnh đầu tiên trông như mớ ký tự khó hiểu. Cảm ơn vì đã kiên nhẫn đọc từng ô thoại, từng mật thư, từng trang tài liệu.</p>
+      <p>Bạn đang làm điều mà không phải ai cũng dám làm: học một thứ rất mới, và học đến nơi đến chốn. Hãy tiếp tục giữ ngọn lửa ấy — vì hành trình còn dài và còn nhiều điều thú vị phía trước.</p>
+      <p>Trang web này không hoa mỹ, nhưng nó được viết, test và deploy bằng chính những kỹ năng bạn vừa học được. Đó là món quà đẹp nhất: <strong>bằng chứng rằng bạn làm được.</strong></p>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <div class="emoji">🧠</div>
+        <h3>Sẵn sàng học</h3>
+        <p>Mỗi bài học là một cơ hội mới. Khanh luôn sẵn sàng thử — kể cả khi chưa chắc.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">⚡</div>
+        <h3>Nhanh và gọn</h3>
+        <p>Deploy web chưa tới 5 phút. Endpoint, env, password gate — tất cả đã trong tay.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🤝</div>
+        <h3>Cộng tác với Agent</h3>
+        <p>Không phải viết code một mình. Biết khi nào nên nhờ Agent là một kỹ năng.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🌱</div>
+        <h3>Còn phát triển</h3>
+        <p>Còn Q1.2 → Q1.7, rồi Bài 6, 7, 8... Mỗi mật thư là một tầng kiến thức mới.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <button class="send" id="sendBtn">Gửi một ngày thật đẹp cho Khanh 💌</button>
+    </div>
+
+    <p class="footer">Made with <span class="heart">♥</span> for <strong>Khanh Vox</strong> · Trạng Đền Agentsee · Quest Q1.1</p>
+  </main>
+
+  <div class="toast" id="toast">Đã gửi lời chúc tốt đẹp đến Khanh Vox 🌿</div>
+
+  <script>
+    // Confetti
+    (function(){
+      const colors = ['#22c55e', '#86efac', '#10b981', '#fbbf24', '#60a5fa', '#f472b6'];
+      const c = document.querySelector('.confetti');
+      for (let i = 0; i < 35; i++) {
+        const s = document.createElement('span');
+        s.style.left = Math.random()*100 + 'vw';
+        s.style.background = colors[Math.floor(Math.random()*colors.length)];
+        s.style.animationDuration = (6 + Math.random()*6) + 's';
+        s.style.animationDelay = (Math.random()*5) + 's';
+        s.style.opacity = (0.4 + Math.random()*0.5).toFixed(2);
+        c.appendChild(s);
+      }
+    })();
+
+    // Toast
+    const toast = document.getElementById('toast');
+    document.getElementById('sendBtn').addEventListener('click', function(){
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    });
+  </script>
+</body>
+</html>
